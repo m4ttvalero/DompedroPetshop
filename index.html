@@ -1,0 +1,798 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Dom Pedro Pet Shop | União da Vitória - PR</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta
+      name="description"
+      content="Dom Pedro Pet Shop em União da Vitória: rações, medicamentos e vacinas, consultório veterinário, banho e tosa, artigos e acessórios pet."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;800&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ol: #3f4a22;
+        --ol2: #2a3216;
+        --cr: #f7f2e5;
+        --gd: #d4a82a;
+        --sg: #5b7f6a;
+        --yl: #f4cd2a;
+        --tx: #23290f;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+        background: var(--cr);
+        color: var(--tx);
+        overflow-x: hidden;
+      }
+      h1,
+      h2,
+      h3,
+      .logo {
+        font-family: "Fraunces", Georgia, serif;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .wrap {
+        max-width: 1120px;
+        margin: auto;
+        padding: 0 22px;
+      }
+      nav {
+        position: fixed;
+        inset: 0 0 auto;
+        z-index: 50;
+        padding: 14px 0;
+        transition: 0.3s;
+      }
+      nav.s {
+        background: rgba(42, 50, 22, 0.92);
+        backdrop-filter: blur(10px);
+        padding: 9px 0;
+      }
+      nav .wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .logo {
+        color: var(--cr);
+        font-size: 1.35rem;
+        font-weight: 800;
+        display: flex;
+        gap: 8px;
+        align-items: center;
+      }
+      .logo img {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        object-fit: cover;
+        background: #fff;
+        border: 2px solid var(--gd);
+      }
+      .hl {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        background: #fff;
+        border: 4px solid var(--gd);
+        margin: -90px auto 14px;
+        display: block;
+        box-shadow: 0 14px 30px -10px #0006;
+      }
+      .links {
+        display: flex;
+        gap: 26px;
+        color: var(--cr);
+        font-weight: 600;
+        font-size: 0.92rem;
+      }
+      .links a:hover {
+        color: var(--gd);
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        padding: 14px 26px;
+        border-radius: 99px;
+        font-weight: 700;
+        transition: 0.25s;
+        border: 2px solid transparent;
+        cursor: pointer;
+      }
+      .btn.wa {
+        background: #25d366;
+        color: #08311a;
+        box-shadow: 0 10px 30px -8px #25d366;
+      }
+      .btn.wa:hover {
+        transform: translateY(-3px) scale(1.03);
+      }
+      .btn.ig {
+        border-color: var(--cr);
+        color: var(--cr);
+      }
+      .btn.ig:hover {
+        background: var(--cr);
+        color: var(--ol);
+      }
+      .btn svg {
+        width: 20px;
+        fill: currentColor;
+      }
+      .hero {
+        min-height: 100vh;
+        background: radial-gradient(circle at 80% 20%, #55632f, var(--ol2) 70%);
+        color: var(--cr);
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        padding: 120px 0 80px;
+      }
+      .blob {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(70px);
+        opacity: 0.35;
+        animation: fl 12s ease-in-out infinite;
+      }
+      .b1 {
+        width: 380px;
+        height: 380px;
+        background: var(--yl);
+        right: -90px;
+        top: 60px;
+      }
+      .b2 {
+        width: 300px;
+        height: 300px;
+        background: var(--sg);
+        left: -80px;
+        bottom: -60px;
+        animation-delay: -5s;
+      }
+      @keyframes fl {
+        50% {
+          transform: translate(-40px, 40px) scale(1.12);
+        }
+      }
+      .paw {
+        position: absolute;
+        fill: var(--gd);
+        opacity: 0.16;
+        animation: pw 9s ease-in-out infinite;
+      }
+      @keyframes pw {
+        50% {
+          transform: translateY(-26px) rotate(14deg);
+        }
+      }
+      .hero .wrap {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 40px;
+        align-items: center;
+      }
+      .tag {
+        display: inline-block;
+        background: rgba(212, 168, 42, 0.18);
+        color: var(--gd);
+        padding: 7px 16px;
+        border-radius: 99px;
+        font-weight: 700;
+        font-size: 0.82rem;
+        letter-spacing: 0.05em;
+        margin-bottom: 20px;
+      }
+      h1 {
+        font-size: clamp(2.6rem, 6.5vw, 5rem);
+        line-height: 1.02;
+        font-weight: 800;
+      }
+      h1 em {
+        color: var(--gd);
+        font-style: normal;
+      }
+      .hero p.lead {
+        margin: 22px 0 34px;
+        font-size: 1.15rem;
+        max-width: 520px;
+        opacity: 0.9;
+      }
+      .cta {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+      .card-h {
+        background: var(--cr);
+        color: var(--tx);
+        border-radius: 28px;
+        padding: 30px;
+        box-shadow: 0 30px 60px -20px #0008;
+        transform: rotate(3deg);
+        animation: bob 6s ease-in-out infinite;
+      }
+      @keyframes bob {
+        50% {
+          transform: rotate(3deg) translateY(-14px);
+        }
+      }
+      .card-h h3 {
+        font-size: 1.3rem;
+        margin-bottom: 14px;
+      }
+      .st {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 700;
+        font-size: 0.9rem;
+        margin-bottom: 16px;
+      }
+      .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #aaa;
+      }
+      .st.on .dot {
+        background: #25d366;
+        box-shadow: 0 0 0 0 #25d36699;
+        animation: pl 1.6s infinite;
+      }
+      .st.off .dot {
+        background: #d65a3a;
+      }
+      @keyframes pl {
+        to {
+          box-shadow: 0 0 0 12px #25d36600;
+        }
+      }
+      .hr {
+        display: flex;
+        justify-content: space-between;
+        gap: 14px;
+        padding: 9px 0;
+        border-top: 1px dashed #3f4a2255;
+        font-size: 0.95rem;
+      }
+      .hr b {
+        color: var(--ol);
+      }
+      .mq {
+        background: var(--gd);
+        color: var(--ol2);
+        overflow: hidden;
+        white-space: nowrap;
+        padding: 15px 0;
+        font-family: "Fraunces", serif;
+        font-weight: 800;
+        font-size: 1.2rem;
+      }
+      .mq div {
+        display: inline-block;
+        animation: mq 28s linear infinite;
+      }
+      .mq span {
+        margin: 0 26px;
+      }
+      @keyframes mq {
+        to {
+          transform: translateX(-50%);
+        }
+      }
+      section {
+        padding: 96px 0;
+      }
+      .eyebrow {
+        color: var(--sg);
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+      }
+      h2 {
+        font-size: clamp(2rem, 4.5vw, 3.2rem);
+        margin: 10px 0 44px;
+        color: var(--ol);
+        line-height: 1.1;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+      .sv {
+        background: #fff;
+        border-radius: 24px;
+        padding: 30px;
+        border: 1px solid #3f4a2218;
+        transition: 0.35s;
+        position: relative;
+        overflow: hidden;
+      }
+      .sv:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 24px 40px -18px #3f4a2255;
+        background: var(--ol);
+        color: var(--cr);
+      }
+      .sv .ic {
+        font-size: 2.2rem;
+        margin-bottom: 14px;
+        display: block;
+      }
+      .sv h3 {
+        font-size: 1.3rem;
+        margin-bottom: 8px;
+      }
+      .sv p {
+        opacity: 0.8;
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+      .vet {
+        background: var(--ol2);
+        color: var(--cr);
+      }
+      .vet h2 {
+        color: var(--cr);
+      }
+      .vet .wrap {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        align-items: center;
+      }
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 22px 0 30px;
+      }
+      .chips span {
+        background: rgba(247, 242, 229, 0.1);
+        border: 1px solid rgba(247, 242, 229, 0.25);
+        padding: 10px 18px;
+        border-radius: 99px;
+        font-weight: 600;
+        transition: 0.25s;
+      }
+      .chips span:hover {
+        background: var(--gd);
+        color: var(--ol2);
+        transform: scale(1.06);
+      }
+      .big {
+        background: linear-gradient(135deg, var(--sg), #3d5b4a);
+        border-radius: 32px;
+        padding: 44px;
+        text-align: center;
+        font-family: "Fraunces", serif;
+        font-size: 1.7rem;
+        line-height: 1.3;
+      }
+      .big b {
+        display: block;
+        font-size: 4rem;
+        color: var(--yl);
+      }
+      .loc {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+      .box {
+        background: #fff;
+        border-radius: 28px;
+        padding: 36px;
+        border: 1px solid #3f4a2218;
+      }
+      .box h3 {
+        font-size: 1.4rem;
+        margin-bottom: 14px;
+        color: var(--ol);
+      }
+      .box p {
+        line-height: 1.7;
+        margin-bottom: 18px;
+      }
+      .final {
+        background: linear-gradient(120deg, var(--yl), var(--gd));
+        text-align: center;
+        padding: 90px 22px;
+      }
+      .final h2 {
+        color: var(--ol2);
+        margin-bottom: 16px;
+      }
+      .final p {
+        margin-bottom: 28px;
+        font-size: 1.1rem;
+      }
+      footer {
+        background: var(--ol2);
+        color: var(--cr);
+        padding: 34px 0;
+        text-align: center;
+        font-size: 0.9rem;
+        opacity: 0.95;
+      }
+      .fab {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        z-index: 60;
+        width: 62px;
+        height: 62px;
+        border-radius: 50%;
+        background: #25d366;
+        display: grid;
+        place-items: center;
+        box-shadow: 0 10px 30px #0006;
+        animation: pl2 2.2s infinite;
+      }
+      .fab svg {
+        width: 32px;
+        fill: #fff;
+      }
+      @keyframes pl2 {
+        50% {
+          transform: scale(1.09);
+        }
+      }
+      .rv {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+      }
+      .rv.in {
+        opacity: 1;
+        transform: none;
+      }
+      @media (max-width: 860px) {
+        .links {
+          display: none;
+        }
+        .hero .wrap,
+        .vet .wrap,
+        .loc {
+          grid-template-columns: 1fr;
+        }
+        .grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .card-h {
+          transform: none;
+          animation: none;
+        }
+      }
+      @media (max-width: 560px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+        .btn {
+          width: 100%;
+          justify-content: center;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation: none !important;
+          transition: none !important;
+        }
+        .rv {
+          opacity: 1;
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav id="nav">
+      <div class="wrap">
+        <a class="logo" href="#top"
+          ><img
+            src="data:image/png;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/7QCEUGhvdG9zaG9wIDMuMAA4QklNBAQAAAAAAGgcAigAYkZCTUQwYTAwMGFkZDAxMDAwMGRjMDMwMDAwNGIwNjAwMDA0NDA3MDAwMDQ3MDgwMDAwZjcwYjAwMDBkMDExMDAwMDI5MTIwMDAwMWYxMzAwMDBjZTEzMDAwMDA2MWEwMDAwAP/bAIQABQYGCwgLCwsLCw0LCwsNDg4NDQ4ODw0ODg4NDxAQEBEREBAQEA8TEhMPEBETFBQTERMWFhYTFhUVFhkWGRYWEgEFBQUKBwoICQkICwgKCAsKCgkJCgoMCQoJCgkMDQsKCwsKCw0MCwsICwsMDAwNDQwMDQoLCg0MDQ0MExQTExOc/8IAEQgAlgCWAwEiAAIRAQMRAf/EAKgAAAAHAQAAAAAAAAAAAAAAAAABAwQFBgcCEAABAwMBBgQFAwUAAAAAAAABAAIDBBESIRATIDFBUQUUIiMwMmFxgUKh8DORscHhEQABAwEEBwUGBAcAAAAAAAABAAIRIRIxQVEDECIyYXGBIEJSkaETMLHR4fBicpLBIzNDorKz8RIAAgEDAwMEAwEBAAAAAAAAAREAITFRQWFxEIGRIKGx8MHR4fEw/9oADAMBAAIAAwAAAAHXTIwDMAAGAAADAAoJc938yBpmQAEa6z7pkvoxVyVcpPsf1/IFS13ojAMAAGACBxcrCgZKxrjxrIa4vS7ZGO3Tdyv2jBuHDBPtpolauL5gMe2HHpFrrxkYMwRkSEPGrIKS0vncgfMxmNyJFzVl7NSI+UtPbB4j2ykYef7Sr+n4nrj1nMY9sOPScdrx8w/HUsVN44Eq5iu0+mq89S+TsTp0stw/ptvgR3T0UG9dscpJwM8u1pusUbS37FXHthx6SYa7RL3BpnATlfm0e6xOqdmIcOJ0irTeX4BvsksOfdvpuQp+jN+kHs1zHLrX/P7zJR6+PbBj75prsRLgglw5jSHDlnNEccnIQAM84hoROWTTUXLtzOPXpxkwA4gZFGz0uzO0bTj+wY/NRmukAQOr2iiJKyNgofRdHmt1rxyleKxOQK9Y3B9xsnLt3MO5TVYLRj0pZZxLMrFj+vZDMRutorJAHnd6hUF6OOXEZM8t2kY/jZxZymweHDWNukpX9KoF0cNYtN83jnNnkY2elY1zkWu5FJs9aPkwaLSRIhRa9qTRo+oNc2JnwpU+ee496tFSSThqkk1cp926C5arNrTb69YHjUZHrmRuEtYPJgY1oZKANbPIwBrgyMAawWUAFrHOUgDWOslBDWxkgM9bGSADW8kAA//aAAgBAQABBQL40clyH3Pw6vxUwqk8aZMeCplLJPDZXplReRswJ+BUVG6Xi3OhpHLJwW+ehPIpah7AIw8QnBYF8kcQYPgVlN5iOdskToq58Y8Pmkct8gQjoHPsmXIhIy4nyBgfWWUFTvNlTSiVSUm6IMiGRUVmp5yUjtMcBLPYsdkOHPeyUrN46L0Smcuc+dxfHK9ymoLgTlhikzTlF7kkvN2pozePaXAIODk+n3aBLGMgMrnN3bfKXTKc5rxSnDo4NGzPVFq5xuZRY0YtHsqKjBTO3algcx9PVbxrHmoO+jjVXJm9lS1yknaxA3XiB9lkgtIqYoKSn3j2txGwO94e7PVSBpBdBBGzdCNoMcTMgz+pfJCrwZNXPme2dqc4IOawCqyVG9xftqQ1qpY5CyKjVRTvLpKZ5RpJMPLkM8m7GOAtXisyKHOkjDiI2lxaGoEpjshsqITImMwErrAxkNcy6xOYDgiS1tT4k4o67KVuTqepMae/NqBVG/JnBUHSnfsJVRVtiVTVunRKKjjzLYwGiJyZHsqBp4afRwSOJlc7BOfZVniBYZJC7a2J1pYGsMbNbWTHXapoy5vhTrs4JJrSSS3FzNFUxb0yUb2k0YC8s2EzRksMjBJFYqceiP5QdVQfJsKBXiDMZb3EKmqt2oqkF7JHNa2V4QjBT4SRCcERk2B2kvzhUg9vY7ZWRbxgVlXHJRc8VZMKd800OSheCnNxdKETZsbcW7S3ZPS7CzMSRuiLeVlYBbmUpiy3ZLcwNXt9w8RjToLptPZTQXG8wW+avMJ82Q9x5e0uQmkAjZK1UTTb4WIWAWIWAQaArK3D/9oACAEDAAE/AeDA87bXQ6XRbbigsOfJNjz13YT2tGmACxuNf5ZVOhA6cFrKyik3fMAhQ1DXjQ2PZbsXHVSH1BqrG6A9tgF1ZAd0BdaqH5m/dWTx6rqsfyH52N/yv9LJZLLmqaIWyPNOqDkG90030VY2x+/+uA6JjC42AUNGGC79T2Unpv2TfcfdM9Kqx6b/AF2xNudFLEWgXCpZ4ms09Lut1JWsF9ck+R832UYEdh+6AVS+7PztppMXAqog3jVHSD9SbRM7LdgaKZlvwmG4VSen14IK5zNDqE6uDnD02F0Zx0TpivMNcLEi6jnDL35KZ+Tvp04rq6HB/9oACAECAAE/AeDJX2Nqh16GybKD14pg4ts3mpHGM23hUb3dXXRseSoWDU8Gdzbl/wAQk/n2TyH8iQeilgc39IP4ReU0WYT3VG7UjY51kH9e3NOf2Gp5K4aGjmf5dekdlJ8p+y1vZZaYqibzP42PHXssDaw/VzK3aEWv7IRJ3Yp8AALuye76KikDhbaeSGqKJ7Lmqh4YzXr0T9V4f822V2IUb7pwKDCUS2PXr9FKXTm/bojckhULbO/F/wC+2dmTSFDNgU+o0uE6td3QmPNNkv8AZ37J4xk+6oW9fpbglpA/Xkm0uIOt/ojTm/JNhHUFGncx123IKlpS6xHNU0W7aBxW4v/aAAgBAQEGPwL3xBpciPD7x0aOQ11iS6KxN16DXNLHHqOyS3u1zEp+MuBn4p9rZGjA62lA9yz8bg3zWkFwtWxxMWXD4FB7qC8BUcfNb3or/RSXKai0JrQ9Vd1FCjm4/ZQGXuXMzuORFysvkOCz5p7zRpiBx7POfimnp25Ku8/swiIsubeOBxBxGqaWhmPRRudA5q3m/p+q7nqsya62DgoHMoHPtSd1jbUcSYanvN0WBxi8+dAtFwZpR0BoiZIa02YHST0RrDA3a+PnZWiD8bwcorPop0Wyb7Ju+ih7YcrtQyFUEU3sVMKhlbJxxy4daoBooBCc4UDW2G8TMu9VtULnUxAc/wDYlR3TV3OZ+iJd9iZ1Wu83WdUcU3WGtq9xgc0JlxLg1xmN7JUO0ZsPxkd12YK9pZrlkReomArExGCaBBI/iWT3rO6E0TtOEwgCanDU7UCqam4KMtbHHunSA8Cbj5LRt8E6V3M7qBPc2vkrPecf7tIaeQWVKZ8XL2rqHSV5M/4rThXSbZ/Cwbo8lOGj/wBmk+QT9KfEWMOVnHqVacLIa314KTd4MFX76hYjqpa50XXBU+CFoU+B7ExV154Yp2kbfpnTlsijVL64xx4qW5hw4Oag6bT8sIN4QbeLJZH4U4Xvdj94InvWrQHG9bVGglwbxP1TWZ11ZcU4gbkC1zq6FBOr7vQOesQcweRQaLgI8tQA6pq4IlEzCssoPFj9FW/UBS0d2RI4+lyFhllodtNN54hNpQGZWSC5E9mMyrJwu5a6muSqdnw4awKCc7k7Rhw0tsH2QFDA3trCVhSjRkOeKrqgZo/m7LsminVB2V/I6i1oqMVUyTfrtkOsTEgSgwh/sbLXufjNfnEJzg4OY/dhsWQb/PHUOOql4qnfm7LucI8aH5qL8Dd+6wtiyJoAR4iPD4VDobWAXUBPBS54FBmBXi6K8E32sO9o4Bm0bpqacFp5taIhzYaXi4UgDkrVp38sN2sRmqFO5JvILmgj+Y9k5OE9bjqLc/UZIt0jGvBgtAFmHN+ic6yC3+mMWmIvVmy0tmYcLcHOcSiJvNqaTPkjON6jvNu4oOHVHkoyTT+IetNQ7NL2V+YVECE03EX9nyVpvUZ/VUqFODr+a6j/ACCJTRkO1aZ1b8lFxyNCoOKqOXHXmps+qs3OF4Kn9Q4Z8woQ4VPT6oNF287lh5n3GB1ZqHMf5St1/ktx6iy/4JpsnZmpvIwlbqj2ZOzF8VzRLmbxkx8ESRE+8uVyu9x//9oACAEBAgE/If8AsURB2B1q/wBU2gxVyAPJD/P/AEx/9GVQA0GUhAjVPN/PpNfmYqBQUtrDqgWkt/kkoS0YTu1HxQbwvM1roSLgZWuLf8QVg0joLje2lN4utHcI8qgO4j1KbknQnA957x3VgfTzCEfyjrKHQAXHtjmDAucHsGYEKKDX5LQwCncXHCxQgm1ROj/4iMlEHyIvMOBk3UtjIdxiJANRZvLyC35hAWnACBAmo/J7QreHd4IYaQQysURJw0EMvVsP1uihEXTyV8oeSAMpJEpBwAUJoY4LCLEAgLBuWqPtBMCvJA7MfkQAIGHZ8QN4l2GIlk1g2FKAAaACw7mFOtALD8xWWBzDsUnyamEFo1ONJt6B8+rIEORHxE8qXHF3STxPwCFtynHIdjaLoKxcui1Do94SwfFKlVgAZO4mBB1lJkx795lc3ZB/t7QqUCsQdbIfuGqzzA917/EPsD5hNb37ztP8+iwnIqDqAWoQfiBAfkAVSC2JN5QToCdV+9YYeod7g4s3gygxRlwOpuGE7QmhXb1aKbhAcBKRlUDcvyX7dCJQwF5BKIhUNJZA1p2gMZ02Fvu8cnEYavgTOyn56mQIB7q+wrNLLhoNlhaxAALAVi6oU31tIUZMVDUqBKGFdEYQYtdZ3r2jISQZFAak2HeFYTuFVqjUpjMdQBNVhkOzGITR2KifAZgwBBYNQZadUPcQ5B3GoI2hdjTmKrckc/VWBSJgNXd/RBACwADt1fVNziMwwQTg4gPBR8VmjAJcpBySYIWWmHvkLMQHUQYtAGbciNeSCNc9F5ncwVIG3glsP5Q2IUCgzewGZisTcViuMbK4gqAR6NRTSnSNnqRWj97wohC/u5HqowSZ8iDjgbkO5DeNJvHAj3ai6AQIFK/sI9ACgKWotfZKWRjthQLHSsrA9BRiRuI1Jl1wea2hRoQQURHiAmCVEkBWobwprVEAghStiRTmESFAMrFWGwaQVAgK+AMgnnAwIK2CJRWa6jQ41Z1F2oPeF5hUMgGKrDmLgkwiWKScSwDoNQzDWguirq4KurniHaZ02N1nPE0lCwRwqIMTYAetNCQJ1Cj3VoKzEHAKOzaweGVXaVoqwRGgTHEa2i0OE3Q3K/UOrcJKpVk+YA/PDx9GVmzXcMogVnaakdHkoyzFQBgGbgIca9tIUAgKBsb6ZrbMbTGz/YgkdIKhYMcNj0graQ7Cp9hDVvVFn+I4mbMGAuf0N4aNBqBoeuTH/PSYaWAGQAPJ+uGlzNqLdGSVGqxCkDQtwgAbiyfEUPho4asG39iBpA1LAqo7mfj0gQ6DwONZ/wAA/uDBuWJgy3shreHSSVBHWHSMTlSxvAFPwIKeFVQKToEyh8FKE0BEF8AYOC+tYoE2o5xxG5xkN1ceJYhAa/HpDvwbi874e4ggUg6FQCKoXAB5IOtCVKWqDBgFhbI2RolEtoCDKwuJOpTAgQgbQSFjtSIGaCVEgBqBQVMKgMghXxKyIlA01IgLM0joI2qhYKW081hjCiFRWiiC4P4nifBEiDppyKwWTSBUs/l6muiwKibRKHx5g7SXHtp01C+saQinKSEoNV0gHRWhdCFoLSLMul+4rEDREpm7iCTcLaAKgVwFuNEaUQpKaOttS9WYWhd7GO49xDkeg+BGoIyIATP4SlO5EeJQ1QeD+hgU8xG6z5PUI4ZlRlGQvcEMAA2G3xFJIqJUwqBgdx2gIDFT0MzjIr7Dyj5eD/sHC41gwMyg+PusVpUWzSe8chlMNugY6bgB5X79DoWJXIW62Wc6XsaGC7FOwdo1Ax5PIgUCBoEqNj9aSoXgStwWrbzCUdcmhEHxK2QJmR/RLPQU3Cp+xraPSxQ/Bh1msi4IfIzXoCC4Cocg8D1EOAM1I5ADAYDgQ5BQL8HMFYRW9I+IJWiyeAIF0+uXzCu1oWC7EoxmUYmHQ3t4cCaFXDEtZi/6hlgmssBThAH4eESnU+V2/wCZJoJsptIcLxLAAIuImIvR/9oADAMBAgICAwIAABCiBThKUm1ciBT4JzBNaMtR8r9lDQfKErwY6pYtsOrTttN0VRaSDCDjmYpLXMB4b5kqSogIiB6sgh5naOGx5yJrrkKapBACDPHJDAD/2gAIAQMCAT8Q9AOEYRxwtCtAeIS4QegVm/UQA2Do7mFEINLaytVCgikaAKb+hQJJZC7ueMNyGD+JUxuJUOUprRk8zlReaxwlkK68TshCnjWd3eEQoop3rLGPuYHtgD8wCynouUUfgB0fm570CW/QC1MwMDypSP6t4UJwXQPiCp5vAgWKJOA4YbGOnfMW4gD/AHGWsPgTANY4cOopgDKJEIiMQWCHFe7B3jUGGwAhFW9o7zJp8oCMHgPB66GC3mVMXTlg2us3XvLQAOJTHnKngDzFjvehCBVoYUUZctivq/aaFeZQ05RBKo2FY+PqGyYSyfMJ+j//2gAIAQICAT8Q9BAXPQ2JWg0yLS2J26uE9BC6shCk3vjp6EodDAalz/o86T8v9T7En4h6sbWTPZCKzB8dAi+ANyYQtBgbWfHWoQdSFJU6lyqKVc0q5qxvD0BIHL6yCGK9MlIUXQgELSEoWAF7dMOq4Ny46GJCSg4M0Oi0yDOgNdoD8Snd73dfNA7S79Qt2CDs6BDOI9a6cEquCQiqArjtEghiRaZn2L0kMCEbCH0f/9oACAEBAgE/EOgHqXpUFbAKv3PmUh29g6IijwHQj1DqI2hYrUwU3EInR3aRQHZAcwnqapcQ1GYADZWV/Paft1BhpNRWG8G3sArQ7pA3juELHTc6CAeqkioRBDYDYyBJOYReYE4gS69tU/cRlCRTgaKGq78QO5BszpxG4XkB+0lFyAZMuVghswiakCOwK/KUeEVNzuVvNsFIrH82UmnqxDksNTf9wCCDoI+q6EZQ9gR2lSiRywLQZRP9pKj6ARLvWhICypod19lABJJ4/US00qitODDln+zP3bRZcMHSHZf6IJnRfTqPfqIOpED5idgLniNAUFfTRXgOyD+N8WLizuAYQEpAg4/tgCuiZOH7CeSUEHR25MvKJnz8ys5glUCoCkVTISY9hln0/YRuEz5DZ5MK1rmNQ8kwP9azbUB3OsGGskwQqO1uggPRoHYQo8IIXd137CWy5K8RvmU0hY/WBf2mqTXhDrUP/RDn9mSHgdT8k+rAh+DshXJIq3MaR6AkbjDvBbQft+J3d5qB71Q7cPyh61Uz+DxGLcPBdBBK4AyL5Qq1sI0ckioYmV7vNyWBYQcdqy2OHcXR1sw+duECLHkCKG/rC7qrtStAR7AW3uLCKkBcAQqIQryxuJQlWvv/AJpBrG9z65zOI2KKMTEhyD+odNc2uHEVKryE9dhIg/oSwIMt8Ob3cVFJTxiQkwUqjxcE2A+NIRFfAM0dJI7MYbBDBkO4UcUD2kIoODPZccCRm1Z7QfAikC+yiATAACoIIYI2UV/uUhLDuAXwhTYLHcEQYhWOEX3UfcoKhIrikKxBXu2bJ5QX4qo6/uJyIXFc/ukFeIFU706NSKwzAK+YB4DrD5mGd8J+UzQ/1sJ9EN7jdGyIgA/ZIadtNbLgIeO0mK761uJ/tkiv0WgYCuD2gINLTPrlnORhZEfsMCHrmPQHYH0FfaUmscLNIlNoYuEVTP8AxJKUUxrYK4P6DAg26AXPzbuIeZhdoKIhZ9EAM2BCLsgWCX4592x4sikXLWylIyJ7VYsgfg0p8oUn6tG6KrJq3AVI2mQ5hAJakltRbSPCHyDLW3AdgNBtWrQYO1j6ll3lkggw9O1u3QRZBENlU/IqNQJS9DuwBntCP7uIgOFVTpLyIKaYti2kK5NcFn6hwkq807uGlqjdAAOpowioXkj2cTuR3hdH5QiQhZAk7swyZUVVSYO1H4AJ7hqZAT9SAxXPUKNN11yQFbBPgNN2cmUQPXohvxCF39KSx9Jg4i3JihLCxdqXsHBHQMII1hWKz+RNaKUgfA9TNCNT5fRCazoc7wr0qXXclOBqp05E9dIRTogsfPAfgg4maPD+0IBkNOyAXHWsj3D8TiXw+kRujDvUcsRCWH9XanZKCUm9FEthXMUAkKzQSe0rQhaqWH87Q6fCEAt93ny5WH9sdzosVAsBGOONTBg4LPAoKmAKmnmCItoPcr2UB84JJY9nOYdwKEEWjq+gbIoXKif2VoYobNkRLeygvAPx4MBkErkpAwdtDNxPzYBjGq5NKgrBkBKK/MgwcfZyO7LB1JapRKFQQW7oEq5wxVim2ksZZ4yggG/qSBPk1LUR7qzbH+IgQVIw441SCNDC2VfU8oFcZslPGj3Eqwqaqp6ioxuJWAWQIU9GW1qCwOGLEOYm/ch7AWRAvgis7CoICgjeVC7eVQneVBiK9O/vxKn2aOrpkDvNpn5goBqBFeFE3h7BIx3uOefOdWhjSCFq8IpJqJV/kB3BodxKUFV6gj7WMqX8wdylqLFulH8kQACwDZx9MAA4aD7aOuwGfuYw3JwjhrIHy/fCSLdZ2oI0LuLDeacFsE6iP4x7QFqfHKK91D/tBh8o+twKGEWtJS5x861h69gggZCXpkrQelmVgW3BPuBJIauVYPbgY0xANQrH3MABblAMs+9okeu8oWW4h3mqgszbg2hD2hRjJuPBVBcVObi3BRnxXOfe5fLCxW/9Sh6A9R0kOWwqWYgWpnmstI4wRBGEoyCwYO8eIwscgyj13GMT6SYcvhjI2LVjgfUNgECKeZVczCh/Q/wEHlGh39jR1c6zSoYmAADKyUq9AMB6vopdPFEfoE/xBC7n5CAEMwAIS6PAgBo8CJ9EtDHP/9k="
+            alt="Logo Dom Pedro Pet Shop"
+          />Dom Pedro Pet Shop</a
+        >
+        <div class="links">
+          <a href="#servicos">Serviços</a><a href="#vet">Veterinária</a
+          ><a href="#onde">Onde estamos</a>
+        </div>
+        <a class="btn wa" style="padding: 10px 20px" href="#" data-wa
+          >WhatsApp</a
+        >
+      </div>
+    </nav>
+
+    <header class="hero" id="top">
+      <div class="blob b1"></div>
+      <div class="blob b2"></div>
+      <svg
+        class="paw"
+        style="width: 90px; left: 8%; top: 22%"
+        viewBox="0 0 64 64"
+      >
+        <ellipse cx="32" cy="42" rx="14" ry="11" />
+        <ellipse cx="12" cy="28" rx="6" ry="8" />
+        <ellipse cx="24" cy="15" rx="6" ry="8" />
+        <ellipse cx="40" cy="15" rx="6" ry="8" />
+        <ellipse cx="52" cy="28" rx="6" ry="8" />
+      </svg>
+      <svg
+        class="paw"
+        style="width: 60px; left: 48%; bottom: 12%; animation-delay: -4s"
+        viewBox="0 0 64 64"
+      >
+        <ellipse cx="32" cy="42" rx="14" ry="11" />
+        <ellipse cx="12" cy="28" rx="6" ry="8" />
+        <ellipse cx="24" cy="15" rx="6" ry="8" />
+        <ellipse cx="40" cy="15" rx="6" ry="8" />
+        <ellipse cx="52" cy="28" rx="6" ry="8" />
+      </svg>
+      <div class="wrap">
+        <div>
+          <span class="tag">📍 UNIÃO DA VITÓRIA • PR</span>
+          <h1>Tudo para o seu pet em <em>um só lugar.</em></h1>
+          <p class="lead">
+            Rações e alimentos especiais, medicamentos e vacinas, consultório
+            veterinário, banho e tosa, artigos e acessórios pet.
+          </p>
+          <div class="cta">
+            <a class="btn wa" href="#" data-wa
+              ><svg viewBox="0 0 32 32">
+                <path
+                  d="M16 3C8.8 3 3 8.8 3 16c0 2.3.6 4.5 1.7 6.4L3 29l6.8-1.8A13 13 0 0 0 16 29c7.2 0 13-5.8 13-13S23.2 3 16 3zm6.4 18.2c-.3.8-1.6 1.5-2.2 1.5-.6.1-1.3.1-2.1-.1-.5-.2-1.1-.4-1.9-.7-3.300-1.400-5.400-4.800-5.600-5-.2-.2-1.300-1.700-1.300-3.200s.8-2.300 1.100-2.600c.3-.3.600-.4.800-.4h.6c.2 0 .5-.1.7.5l1 2.300c.1.200.1.400 0 .6l-.4.600-.5.500c-.2.200-.3.400-.1.700.2.300.8 1.300 1.700 2.100 1.100 1 2.100 1.300 2.400 1.500.3.100.5.100.7-.1l1-1.200c.2-.3.400-.2.700-.1l2.200 1c.3.200.5.300.6.400.1.300.1.900-.2 1.800z"
+                /></svg
+              >Chamar no WhatsApp</a
+            >
+            <a
+              class="btn ig"
+              href="https://www.instagram.com/dompedro_petshop/"
+              target="_blank"
+              rel="noopener"
+              ><svg viewBox="0 0 24 24">
+                <path
+                  d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.500a4.500 4.500 0 1 1 0 9 4.500 4.500 0 0 1 0-9zm0 2a2.500 2.500 0 1 0 0 5 2.500 2.500 0 0 0 0-5zM17.500 5.500a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+                /></svg
+              >@dompedro_petshop</a
+            >
+          </div>
+        </div>
+        <aside class="card-h" style="margin-top: 80px">
+          <img
+            class="hl"
+            src="data:image/png;base64,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"
+            alt="Dom Pedro Pet Shop"
+          />
+          <h3>Horário de atendimento</h3>
+          <div class="st" id="st">
+            <i class="dot"></i><span>Verificando...</span>
+          </div>
+          <div class="hr">
+            <span>Segunda a sexta</span><b>8h30–12h • 13h30–18h30</b>
+          </div>
+          <div class="hr"><span>Sábados</span><b>8h30–13h</b></div>
+        </aside>
+      </div>
+    </header>
+
+    <div class="mq"><div id="mq"></div></div>
+
+    <section id="servicos">
+      <div class="wrap">
+        <span class="eyebrow rv">O que você encontra aqui</span>
+        <h2 class="rv">Cuidado completo, do banho à consulta.</h2>
+        <div class="grid">
+          <div class="sv rv">
+            <span class="ic">🍖</span>
+            <h3>Rações e alimentos especiais</h3>
+            <p>Alimentação para o seu pet, incluindo alimentos especiais.</p>
+          </div>
+          <div class="sv rv">
+            <span class="ic">💊</span>
+            <h3>Medicamentos e vacinas</h3>
+            <p>Linha completa em medicamentos e vacinas, com antipulgas.</p>
+          </div>
+          <div class="sv rv">
+            <span class="ic">🩺</span>
+            <h3>Consultório veterinário</h3>
+            <p>
+              Consulta veterinária para cuidar da saúde do seu melhor amigo.
+            </p>
+          </div>
+          <div class="sv rv">
+            <span class="ic">🛁</span>
+            <h3>Banho e tosa</h3>
+            <p>Higiene e cuidado para deixar seu pet limpo e cheiroso.</p>
+          </div>
+          <div class="sv rv">
+            <span class="ic">🧸</span>
+            <h3>Brinquedos e acessórios</h3>
+            <p>Artigos e acessórios pet para todas as horas de diversão.</p>
+          </div>
+          <div class="sv rv">
+            <span class="ic">🧥</span>
+            <h3>Roupas pet</h3>
+            <p>Roupinhas para o seu pet.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="vet" id="vet">
+      <div class="wrap">
+        <div class="rv">
+          <span class="eyebrow" style="color: var(--gd)">Veterinária</span>
+          <h2>Saúde em dia para cães e gatos.</h2>
+          <p style="opacity: 0.85; line-height: 1.6">
+            Consultório veterinário, vacinação e antipulgas na mesma loja onde
+            você compra a ração e os acessórios.
+          </p>
+          <div class="chips">
+            <span>💉 Vacinação</span><span>🐾 Antipulgas</span
+            ><span>🩺 Consulta veterinária</span><span>🐱 Gatos</span
+            ><span>🐶 Cães</span>
+          </div>
+          <a class="btn wa" href="#" data-wa>Agendar pelo WhatsApp</a>
+        </div>
+        <div class="big rv"><b>🐕</b>Seu pet merece cuidado de verdade.</div>
+      </div>
+    </section>
+
+    <section id="onde">
+      <div class="wrap">
+        <span class="eyebrow rv">Onde estamos</span>
+        <h2 class="rv">Venha nos visitar.</h2>
+        <div class="loc">
+          <div class="box rv">
+            <h3>📍 Endereço</h3>
+            <p>
+              Rua Dom Pedro II, 18<br />União da Vitória – PR<br />CEP 84600-295
+            </p>
+            <a
+              class="btn wa"
+              href="https://www.google.com/maps/search/?api=1&query=Dom+Pedro+Pet+Shop+Rua+Dom+Pedro+II+18+Uni%C3%A3o+da+Vit%C3%B3ria+PR"
+              target="_blank"
+              rel="noopener"
+              >Como chegar</a
+            >
+          </div>
+          <div class="box rv">
+            <h3>📞 Contato</h3>
+            <p>
+              Telefone: (42) 3522-0836<br />Pedidos e dúvidas pelo WhatsApp.<br />Segue
+              a gente no Instagram: @dompedro_petshop
+            </p>
+            <a class="btn wa" href="#" data-wa>Falar no WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="final">
+      <h2 class="rv">Seu pet está esperando.</h2>
+      <p class="rv">Chame a gente e faça seu pedido pelo WhatsApp.</p>
+      <a
+        class="btn wa"
+        style="background: var(--ol2); color: var(--cr); box-shadow: none"
+        href="#"
+        data-wa
+        >Chamar agora</a
+      >
+    </div>
+
+    <footer>
+      <div class="wrap">
+        © <span id="yr"></span> Dom Pedro Pet Shop • Rua Dom Pedro II, 18 –
+        União da Vitória/PR •
+        <a
+          href="https://www.instagram.com/dompedro_petshop/"
+          target="_blank"
+          rel="noopener"
+          style="text-decoration: underline"
+          >Instagram</a
+        >
+      </div>
+    </footer>
+
+    <a class="fab" href="#" data-wa aria-label="WhatsApp"
+      ><svg viewBox="0 0 32 32">
+        <path
+          d="M16 3C8.8 3 3 8.8 3 16c0 2.3.6 4.5 1.7 6.4L3 29l6.8-1.8A13 13 0 0 0 16 29c7.2 0 13-5.8 13-13S23.2 3 16 3zm6.400 18.200c-.3.800-1.600 1.500-2.200 1.500-.6.100-1.300.1-2.100-.1-.5-.2-1.100-.4-1.900-.7-3.300-1.400-5.400-4.800-5.600-5-.2-.2-1.300-1.700-1.300-3.200s.8-2.300 1.100-2.600c.3-.3.600-.4.800-.4h.6c.2 0 .5-.1.7.5l1 2.300c.1.200.1.400 0 .6l-.4.600-.5.500c-.2.200-.3.400-.1.700.2.300.8 1.300 1.700 2.100 1.100 1 2.100 1.300 2.400 1.500.3.100.5.100.7-.1l1-1.200c.2-.3.400-.2.700-.1l2.200 1c.3.200.5.300.6.400.1.300.1.900-.2 1.800z"
+        /></svg
+    ></a>
+
+    <script>
+      // Número do WhatsApp (DDI+DDD+número, só dígitos). Confirme com o cliente.
+      const WA = "554235220836";
+      const MSG =
+        "Olá! Vim pelo site da Dom Pedro Pet Shop e gostaria de mais informações.";
+      document.querySelectorAll("[data-wa]").forEach((a) => {
+        a.href = "https://wa.me/" + WA + "?text=" + encodeURIComponent(MSG);
+        a.target = "_blank";
+        a.rel = "noopener";
+      });
+      document.getElementById("yr").textContent = new Date().getFullYear();
+      const items = [
+        "Rações e alimentos especiais",
+        "Medicamentos e vacinas",
+        "Consultório veterinário",
+        "Banho e tosa",
+        "Artigos e acessórios pet",
+        "Antipulgas",
+      ];
+      const h = items
+        .map((t) => "<span>" + t + "</span><span>🐾</span>")
+        .join("");
+      document.getElementById("mq").innerHTML = h + h + h + h;
+      addEventListener(
+        "scroll",
+        () =>
+          document.getElementById("nav").classList.toggle("s", scrollY > 40),
+        { passive: true },
+      );
+      const io = new IntersectionObserver(
+        (e) =>
+          e.forEach((x) => {
+            if (x.isIntersecting) {
+              x.target.classList.add("in");
+              io.unobserve(x.target);
+            }
+          }),
+        { threshold: 0.15 },
+      );
+      document.querySelectorAll(".rv").forEach((el, i) => {
+        el.style.transitionDelay = (i % 3) * 90 + "ms";
+        io.observe(el);
+      });
+      function status() {
+        const p = new Intl.DateTimeFormat("en-US", {
+          timeZone: "America/Sao_Paulo",
+          weekday: "short",
+          hour: "numeric",
+          minute: "numeric",
+          hour12: false,
+        }).formatToParts(new Date());
+        const g = (t) => p.find((x) => x.type === t).value;
+        const d = g("weekday"),
+          m = (+g("hour") % 24) * 60 + +g("minute");
+        let on = false;
+        if (["Mon", "Tue", "Wed", "Thu", "Fri"].includes(d))
+          on = (m >= 510 && m < 720) || (m >= 810 && m < 1110);
+        else if (d === "Sat") on = m >= 510 && m < 780;
+        const s = document.getElementById("st");
+        s.className = "st " + (on ? "on" : "off");
+        s.querySelector("span").textContent = on
+          ? "Aberto agora"
+          : "Fechado agora";
+      }
+      status();
+      setInterval(status, 60000);
+    </script>
+
+  </body>
+</html>
